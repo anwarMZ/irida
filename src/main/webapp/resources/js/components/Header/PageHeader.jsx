@@ -1,10 +1,11 @@
 import React from "react";
-import { render } from "react-dom";
-import { Session } from "../session/Session";
-import { Notifications } from "../notifications/Notifications";
+import {render} from "react-dom";
+import {Session} from "../session/Session";
+import {Notifications} from "../notifications/Notifications";
 import GalaxyAlert from "./GalaxyAlert";
-import { Breadcrumbs } from "./Breadcrumbs";
-import { setBaseUrl } from "../../utilities/url-utilities";
+import {Breadcrumbs} from "./Breadcrumbs";
+import {setBaseUrl} from "../../utilities/url-utilities";
+import {Form, Input} from "antd";
 
 /*
 WEBPACK PUBLIC PATH:
@@ -13,6 +14,13 @@ the variable `__webpack_public_path__`
 See: https://webpack.js.org/guides/public-path/#on-the-fly
  */
 __webpack_public_path__ = setBaseUrl(`/dist/`);
+
+
+function GlobalSearch() {
+  return <Form style={{width: "100%"}}><Input.Search size={"large"}/></Form>
+}
+
+render(<GlobalSearch />, document.querySelector(".global-search"))
 
 export class PageHeader extends React.Component {
   state = {
